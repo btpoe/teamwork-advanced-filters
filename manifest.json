@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "name": "Teamwork Advanced Filters",
+  "version": "0.0.1",
+
+  "description": "Add more filter options to teamwork",
+  "icons": {},
+
+  "author": "Brandon Poe <brandonpoe@me.com>",
+
+  "page_action": {
+    "default_icon": {
+      "16": "images/icon16.png",
+      "24": "images/icon24.png",
+      "32": "images/icon32.png"
+    },
+    "default_title": "Teamwork Advanced Filters",
+    "default_popup": "popup.html"
+  },
+
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "http://teamwork.union.co/"
+  ],
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://teamwork.union.co/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
