@@ -1,7 +1,12 @@
 function nodeMatchesFilter(filter) {
+    if (!filter) {
+        return true;
+    }
+
     if (filter[0] === '!') {
         return !nodeMatchesFilter.call(this, filter.substr(1))
     }
+
     const contents = this.innerText.toLowerCase();
 
     if (filter[0] === '/' && filter[filter.length-1] === '/') {
@@ -11,6 +16,7 @@ function nodeMatchesFilter(filter) {
             return true;
         }
     }
+
     return contents.indexOf(filter) > -1;
 }
 
